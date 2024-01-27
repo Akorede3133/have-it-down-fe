@@ -4,4 +4,4 @@ const AuthHeader = ({ text }) => {
   )
 }
 
-export default AuthHeader
+export default AuthHeader;
