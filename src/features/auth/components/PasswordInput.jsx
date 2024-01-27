@@ -12,11 +12,11 @@ const PasswordInput = ({ register }) => {
   return (
     <section className="flex items-center justify-between gap-2 bg-[#F3F3F3] py-3 px-4 rounded-md w-[350px]">
         <div className="flex items-center gap-2">
-        <HiOutlineKey />
+        <HiOutlineKey className="mt-1" />
           { showPassword ? 
-             <input type='text' placeholder='Password' className=" bg-inherit outline-none" {...register('password')} /> 
+             <input type='text' placeholder='Password' className=" bg-inherit outline-none text-sm" {...register('password')} /> 
             :
-            <input type='password' placeholder='Password' className=" bg-inherit outline-none" {...register('password')} />
+            <input type='password' placeholder='Password' className=" bg-inherit outline-none text-sm" {...register('password')} />
           }
          
         </div>
