@@ -16,7 +16,7 @@ const LoginForm = () => {
         <PasswordInput register={register} />
       </section>
       <button className="bg-black text-white rounded-full px-10 py-3 mx-auto block mt-6">Login</button>
-      <p className="mt-10 text-center">Don&apos;t have an account? <Link to='register' className=" underline">Join us today</Link></p>
+      <p className="mt-10 text-center">Don&apos;t have an account? <Link to='/register' className=" underline">Join us today</Link></p>
     </form>
   )
 }
