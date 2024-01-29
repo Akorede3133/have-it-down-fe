@@ -4,13 +4,16 @@ import Input from "./Input";
 import PasswordInput from "./PasswordInput";
 
 const RegistrationForm = () => {
-  const { register} = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+  }
   return (
-    <form className="w-[80%] mx-auto md:w-[450px]">
+    <form onSubmit={handleSubmit(onSubmit)} className="w-[80%] mx-auto md:w-[450px]">
        <section className=" space-y-4">
-        <Input icon={<HiOutlineUser />} type='text' placeholder='Full Name' register={register}  />
-        <Input icon={<HiOutlineEnvelope />} type='email' placeholder='Email' register={register} name="email" />
-        <PasswordInput register={register} />
+        <Input icon={<HiOutlineUser />} type='text' placeholder='Full Name' name='name' register={register} errors={errors}  />
+        <Input icon={<HiOutlineEnvelope />} type='email' placeholder='Email' register={register} name='email' errors={errors} />
+        <PasswordInput register={register} errors={errors} />
       </section>
       <button className="bg-black text-white rounded-full px-10 py-3 mx-auto block mt-6 capitalize">Sign up</button>
     </form>
