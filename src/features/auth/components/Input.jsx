@@ -5,7 +5,7 @@ const Input = ({ icon, type, placeholder, register, name, errors } ) => {
     <section>
         <div  className="flex items-center gap-2 bg-[#F3F3F3] py-3 px-4 rounded-md">
           {icon}
-          <input type={type}  placeholder={placeholder}  className=" bg-inherit outline-none text-sm" {...register(`${name}`, {
+          <input type={type}  placeholder={placeholder}  className=" bg-inherit outline-none text-sm w-full" {...register(`${name}`, {
             required: 'This field is required'
           })} />
         </div>

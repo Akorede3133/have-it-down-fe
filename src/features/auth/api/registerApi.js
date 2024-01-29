@@ -1,6 +1,7 @@
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const register = async (data) => {
   try {
-    const response = await fetch(import.meta.env.VITE_BASE_URL, {
+    const response = await fetch(`${BASE_URL}/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
