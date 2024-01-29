@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { HiOutlineKey, HiOutlineEye, HiOutlineEyeSlash } from "react-icons/hi2";
+import PropTypes from 'prop-types';
 
 const PasswordInput = ({ register, errors }) => {
   const [showPassword, setShowPassword] = useState(false);
-  console.log(errors);
   const handleShowPassword = () => {
     setShowPassword(true);
   }
@@ -45,6 +45,11 @@ const PasswordInput = ({ register, errors }) => {
       }
     </section>
   )
+}
+
+PasswordInput.propTypes = {
+  register: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired
 }
 
 export default PasswordInput

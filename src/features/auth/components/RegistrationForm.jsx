@@ -8,7 +8,6 @@ const RegistrationForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const { registerUser, isRegistering } = useRegister();
   const onSubmit = (data) => {
-    console.log(data);
     registerUser(data);
   }
   return (

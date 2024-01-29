@@ -12,7 +12,6 @@ const register = async (data) => {
     if (!response.ok) {
       throw new Error(result.message);
     }
-    console.log(result);
     return result;
   } catch (error) {
     throw new Error(error.message);
