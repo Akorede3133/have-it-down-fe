@@ -5,7 +5,9 @@ const AppLayout = () => {
   return (
     <div>
       <Header />
-      <Outlet />
+      <main className="w-[90%] lg:w-full mx-auto">
+       <Outlet />
+      </main>
     </div>
   )
 }
