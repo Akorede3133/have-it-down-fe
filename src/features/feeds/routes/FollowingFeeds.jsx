@@ -1,6 +1,8 @@
 const FollowingFeeds = () => {
   return (
-    <div>FollowingFeeds</div>
+    <div  className="lg:w-[75%] mx-auto ">
+      FollowingFeeds
+    </div>
   )
 }
 
