@@ -24,7 +24,7 @@ const App = () => {
     <Route element={<AppLayout />}>
       <Route path='/' element={<FeedsLayout />}>
         <Route index element={<Feeds />} />
-        <Route path='follwingFeeds' element={<FollowingFeeds />} />
+        <Route path='followingFeeds' element={<FollowingFeeds />} />
       </Route>
       <Route path='settings' element={<Settings />} />
       <Route path='login' element={<Login />} />
