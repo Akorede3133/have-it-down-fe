@@ -3,12 +3,12 @@ import FeedsNav from "./FeedsNav"
 
 const FeedsLayout = () => {
   return (
-    <div className="lg:grid grid-cols-[2.5fr,1fr]">
-      <div className="lg:min-h-screen lg:border-r">
+    <div className="lg:grid lg:min-h-screen grid-cols-[2.5fr,1fr] relative">
+      <div className=" overflow-auto lg:border-r">
         <FeedsNav />
         <Outlet />
       </div>
-      <aside className="hidden lg:block px-8">aside</aside>
+      <aside className="hidden lg:block px-8 bg-red ">aside</aside>
     </div>
   )
 }
