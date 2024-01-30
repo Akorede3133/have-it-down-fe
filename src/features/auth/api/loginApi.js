@@ -6,6 +6,7 @@ const login = async (data) => {
       headers: {
         'Content-Type': 'application/json',
       },
+      credentials: 'include',
       body: JSON.stringify(data),
     });
     const result = await response.json();
