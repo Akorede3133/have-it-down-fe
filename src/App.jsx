@@ -10,6 +10,7 @@ import Register from './features/auth/routes/Register'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { Toaster } from 'react-hot-toast'
 import FeedsLayout from './features/feeds/components/FeedsLayout'
+import Editor from './features/editor/routes/Editor'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -29,6 +30,8 @@ const App = () => {
       <Route path='settings' element={<Settings />} />
       <Route path='login' element={<Login />} />
       <Route path='register' element={<Register />} />
+      <Route path='editor' element={<Editor />} />
+
     </Route>
   ))
   return (
