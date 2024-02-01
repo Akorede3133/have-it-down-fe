@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { tools } from "../utils/tools";
 import EditorJS from "@editorjs/editorjs";
+import useCreateFeed from "../../feeds/hooks/useCreateFeed";
 
 // const DEFAULT_INITIAL_DATA = () => {
 //   return {
@@ -23,6 +24,8 @@ const EditorForm = () => {
   const [data, setData] = useState('');
   const ref = useRef();
   console.log(data);
+  const { createNewFeed, isPending } = useCreateFeed();
+
 
   useEffect(() => {
     if (!ref.current) {
@@ -31,13 +34,10 @@ const EditorForm = () => {
         tools,
         data,
         placeholder: 'Let`s write an awesome story...',
-        // onReady: () => {
-        //   ref.current = editor;
-        //   console.log('Editor.js is ready to work!')
-        // },
         onChange: async (api, event) => {
           const data = await api.saver.save();
           setData(data);
+          createNewFeed({ content: data.blocks })
         }
       })
       ref.current = editor;
