@@ -5,6 +5,8 @@ import Link from "@editorjs/link";
 import Delimiter from "@editorjs/delimiter";
 import CheckList from "@editorjs/checklist";
 import ImageTool from '@editorjs/image';
+import InlineCode from '@editorjs/inline-code';
+import CodeTool from '@editorjs/code';
 
 // const uploadImageByURL = (e) => {
 //   const link = new Promise((resolve, reject) => {
@@ -15,7 +17,7 @@ import ImageTool from '@editorjs/image';
 //     }
 //   })
 
-  // return link.then(url => {
+//   return link.then(url => {
 //     return {
 //       success: 1,
 //       file: { url }
@@ -24,11 +26,11 @@ import ImageTool from '@editorjs/image';
 // }
 
 export const tools = {
+  checkList: CheckList,
   paragraph: {
     class: Paragraph,
     inlineToolbar: true,
   },
-  checkList: CheckList,
   list: {
     class: List,
     inlineToolbar: true,
@@ -47,12 +49,21 @@ export const tools = {
     class: Link,
     inlineToolbar: true,
   },
+  inlineCode: {
+    class: InlineCode,
+    inlineToolbar: true,
+  },
   image: {
     class: ImageTool,
     config: {
       endpoints: {
-        byFile: 'http://localhost:3000/uploadImage'
+        byFile: 'http://localhost:3000/uploadImage',
+        byUrl: 'http://localhost:3000/fetchUrl',
       }
     }
+  },
+  codeTool: {
+    class: CodeTool,
+    inlineToolbar: true
   }
 }

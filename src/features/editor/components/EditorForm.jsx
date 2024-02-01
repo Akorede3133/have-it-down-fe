@@ -2,26 +2,27 @@ import { useEffect, useRef, useState } from "react"
 import { tools } from "../utils/tools";
 import EditorJS from "@editorjs/editorjs";
 
-const DEFAULT_INITIAL_DATA = () => {
-  return {
-    "time": new Date().getTime(),
-    "blocks": [
-      {
-        "type": "header",
-        "data": {
-          "text": "This is my awesome editor!",
-          "level": 1
-        }
-      },
-    ]
-  }
-}
+// const DEFAULT_INITIAL_DATA = () => {
+//   return {
+//     "time": new Date().getTime(),
+//     "blocks": [
+//       {
+//         "type": "header",
+//         "data": {
+//           "text": "This is my awesome editor!",
+//           "level": 1
+//         }
+//       },
+//     ]
+//   }
+// }
 
 const EDITOR_HOLDER_ID = 'editorjs';
 
 const EditorForm = () => {
-  const [data, setData] = useState(DEFAULT_INITIAL_DATA);
+  const [data, setData] = useState('');
   const ref = useRef();
+  console.log(data);
 
   useEffect(() => {
     if (!ref.current) {
