@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { tools } from "../utils/tools";
 import EditorJS from "@editorjs/editorjs";
 import useCreateFeed from "../../feeds/hooks/useCreateFeed";
+import { useNavigate } from "react-router-dom";
 
 // const DEFAULT_INITIAL_DATA = () => {
 //   return {
@@ -24,8 +25,9 @@ const EditorForm = () => {
   const [data, setData] = useState('');
   const ref = useRef();
   console.log(data);
-  const { createNewFeed, isPending } = useCreateFeed();
-
+  const { createNewFeed, isPending, data: feed } = useCreateFeed();
+  const navigate = useNavigate();
+  console.log(feed);
 
   useEffect(() => {
     if (!ref.current) {
