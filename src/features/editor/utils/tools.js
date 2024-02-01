@@ -8,22 +8,22 @@ import ImageTool from '@editorjs/image';
 import InlineCode from '@editorjs/inline-code';
 import CodeTool from '@editorjs/code';
 
-// const uploadImageByURL = (e) => {
-//   const link = new Promise((resolve, reject) => {
-//     try {
-//       resolve(e)
-//     } catch (error) {
-//       reject(error)
-//     }
-//   })
+const uploadImageByURL = (e) => {
+  const link = new Promise((resolve, reject) => {
+    try {
+      resolve(e)
+    } catch (error) {
+      reject(error)
+    }
+  })
 
-//   return link.then(url => {
-//     return {
-//       success: 1,
-//       file: { url }
-//     }
-//   })
-// }
+  return link.then(url => {
+    return {
+      success: 1,
+      file: { url }
+    }
+  })
+}
 
 export const tools = {
   checkList: CheckList,
@@ -56,9 +56,12 @@ export const tools = {
   image: {
     class: ImageTool,
     config: {
+      uploader: {
+        uploadByUrl: uploadImageByURL
+      },
       endpoints: {
         byFile: 'http://localhost:3000/uploadImage',
-        byUrl: 'http://localhost:3000/fetchUrl',
+        // byUrl: 'http://localhost:3000/fetchUrl',
       }
     }
   },

@@ -30,6 +30,7 @@ const EditorForm = () => {
         holder: EDITOR_HOLDER_ID,
         tools,
         data,
+        placeholder: 'Let`s write an awesome story...',
         // onReady: () => {
         //   ref.current = editor;
         //   console.log('Editor.js is ready to work!')

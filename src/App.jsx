@@ -11,6 +11,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { Toaster } from 'react-hot-toast'
 import FeedsLayout from './features/feeds/components/FeedsLayout'
 import Editor from './features/editor/routes/Editor'
+import EditorLayout from './features/editor/components/EditorLayout'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,16 +23,19 @@ const queryClient = new QueryClient({
 })
 const App = () => {
   const router = createBrowserRouter(createRoutesFromElements(
-    <Route element={<AppLayout />}>
-      <Route path='/' element={<FeedsLayout />}>
-        <Route index element={<Feeds />} />
-        <Route path='followingFeeds' element={<FollowingFeeds />} />
+    <Route>
+      <Route element={<AppLayout />}>
+        <Route path='/' element={<FeedsLayout />}>
+          <Route index element={<Feeds />} />
+          <Route path='followingFeeds' element={<FollowingFeeds />} />
+        </Route>
+        <Route path='settings' element={<Settings />} />
+        <Route path='login' element={<Login />} />
+        <Route path='register' element={<Register />} />
       </Route>
-      <Route path='settings' element={<Settings />} />
-      <Route path='login' element={<Login />} />
-      <Route path='register' element={<Register />} />
-      <Route path='editor' element={<Editor />} />
-
+      <Route element={<EditorLayout />}>
+        <Route path='editor' element={<Editor />} />
+      </Route>
     </Route>
   ))
   return (
