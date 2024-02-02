@@ -6,11 +6,15 @@ import { useNavigate } from "react-router-dom"
 const useCreateFeed = () => {
   const navigate = useNavigate();
   const { mutate: createNewFeed, isPending, data } = useMutation({
-    mutationFn: (post) =>  createFeed(post),
+    mutationFn: createFeed,
     onSuccess: (data) => {
-      toast.success('Post created!!')
-      navigate(`/p/${data.id}/edit`);
+      if (data?.draft) {
+        toast.success('Post saved as draft')
 
+      } else {
+        toast.success('Post created!!')
+      }
+      navigate('/');
     },
     onError: (error) => {
       toast.error(error.message);

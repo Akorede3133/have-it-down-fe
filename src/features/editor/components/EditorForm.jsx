@@ -1,11 +1,14 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from 'react-redux'
 import { tools } from "../utils/tools";
 import EditorJS from "@editorjs/editorjs";
+import { setData } from "../../../redux/EditorSlice";
 
 const EDITOR_HOLDER_ID = 'editorjs';
 
 const EditorForm = () => {
-  const [data, setData] = useState('');
+  const dispatch = useDispatch();
+  const { data } = useSelector((state) => state.editor);
   const ref = useRef();
   useEffect(() => {
     if (!ref.current) {
@@ -16,7 +19,7 @@ const EditorForm = () => {
         placeholder: 'Let`s write an awesome story...',
         onChange: async (api, event) => {
           const newData = await api.saver.save();
-          setData(newData);
+          dispatch(setData(newData))
         },
       });
       ref.current = editor;
