@@ -22,6 +22,20 @@ const queryClient = new QueryClient({
     }
   }
 })
+const DEFAULT_INITIAL_DATA = () => {
+  return {
+    "time": new Date().getTime(),
+    "blocks": [
+      {
+        "type": "header",
+        "data": {
+          "text": "This is my awesome editor!",
+          "level": 1
+        }
+      },
+    ]
+  }
+}
 const App = () => {
   const router = createBrowserRouter(createRoutesFromElements(
     <Route>
@@ -38,7 +52,7 @@ const App = () => {
         <Route path='editor' element={<Editor />} />
       </Route>
       <Route element={<DraftLayout />}>
-        <Route path='p/:id/edit' element={<Editor />} />
+        <Route path='p/:id/edit' element={<Editor value={DEFAULT_INITIAL_DATA} />} />
       </Route>
     </Route>
   ))

@@ -2,9 +2,9 @@ import { useMutation } from "@tanstack/react-query"
 import toast from "react-hot-toast"
 import updateFeed  from "../api/updateFeed"
 
-const useCreateFeed = () => {
+const useUpdateFeed = () => {
   const { mutate: update, isPending } = useMutation({
-    mutationFn: ({ data, id }) => updateFeed(data, id),
+    mutationFn: ({ content, id }) => updateFeed(content, id),
     onSuccess: () => {
       toast.success('Post updated!!')
     },
@@ -15,4 +15,4 @@ const useCreateFeed = () => {
   return { update, isPending };
 }
 
-export default useCreateFeed;
+export default useUpdateFeed;

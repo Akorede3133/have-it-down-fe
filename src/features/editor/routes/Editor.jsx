@@ -1,8 +1,8 @@
 import EditorForm from "../components/EditorForm"
 
-const Editor = () => {
+const Editor = ({ value }) => {
   return (
-    <EditorForm />
+    <EditorForm value={value} />
   )
 }
 
