@@ -25,12 +25,10 @@ const Publish = () => {
     }
   }
 
-  // const deleteTag = () => {
+  const deleteTag = (index) => {
+    setTags((prev) => prev.filter((tag, idx) => idx !== index));
+  }
 
-  // }
-
-  console.log(tags);
-  
   return (
     <div className="absolute left-0 top-0 bg-white w-full py-4">
       <div className="flex justify-end w-[60%] mx-auto cursor-pointer sm:w-[70%]">
@@ -53,7 +51,10 @@ const Publish = () => {
                 tags.map((tag, index) => (
                   <p key={index} className="flex items-center gap-2 bg-white rounded-sm border py-1 shadow-sm px-3">
                   <span className=" text-sm">{tag}</span>
-                  <HiOutlineXMark className="text-sm" />
+                  <button onClick={() => deleteTag(index)}>
+                    <HiOutlineXMark className="text-sm" />
+                  </button>
+                  
                 </p>
                 ))
               }
