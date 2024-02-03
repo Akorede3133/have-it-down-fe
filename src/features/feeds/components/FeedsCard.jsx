@@ -3,7 +3,7 @@ import logo from '../../../assets/blog-logo.jfif';
 import { HiOutlineBookmark, HiOutlineEllipsisHorizontal, HiOutlineMinusCircle } from "react-icons/hi2";
 const FeedsCard = () => {
   return (
-    <article className='border-b py-4 flex flex-col justify-between gap-10'>
+    <li className='border-b py-4 flex flex-col justify-between gap-10'>
       <section className=''>
        <section className='flex gap-2 items-center'>
         <Link to='' className='flex items-center gap-2 text-sm'>
@@ -31,7 +31,7 @@ const FeedsCard = () => {
           <HiOutlineEllipsisHorizontal className='text-xl' />
         </div>
       </section>
-    </article>
+    </li>
   )
 }
 

@@ -1,18 +1,9 @@
-import FeedsCard from "../components/FeedsCard"
+import FeedsList from "../components/FeedsList"
 
 const Feeds = () => {
   return (
     <div className="lg:w-[75%] mx-auto ">
-        <FeedsCard />
-        <FeedsCard />
-        <FeedsCard />
-        <FeedsCard />
-        <FeedsCard />
-        <FeedsCard />
-        <FeedsCard />
-        <FeedsCard />
-        <FeedsCard />
-
+      <FeedsList />
     </div>
   )
 }
