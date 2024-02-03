@@ -7,7 +7,7 @@ const Publish = () => {
     const {value } = e.target;
     const sanitizedValue = value.toLowerCase().trim();
     if (e.key === 'Enter') {
-      if (sanitizedValue && !tags.includes(sanitizedValue)) {
+      if (sanitizedValue && !tags.includes(sanitizedValue) && tags.length < 5) {
         setTags((prev) => [...prev, sanitizedValue]);
         e.target.value = '';
       }
@@ -58,7 +58,8 @@ const Publish = () => {
                 </p>
                 ))
               }
-               <input type="text" name="tags" placeholder="Add a topic..." className="bg-inherit outline-none text-sm py-1" onKeyDown={addToTag} />
+               { tags.length < 5 && <input type="text" name="tags" placeholder="Add a topic..." className="bg-inherit outline-none text-sm py-1" onKeyDown={addToTag} />
+               }
             </div>
           <button className="bg-[#11780E] my-10 py-[7px] px-4 rounded-full text-white text-sm">Publish now</button>
         </section>
