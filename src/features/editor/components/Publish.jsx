@@ -1,14 +1,19 @@
 import { useState } from "react";
 import { HiOutlineXMark } from "react-icons/hi2";
+import { useDispatch } from "react-redux";
+import { updateFeedTags } from "../../../redux/EditorSlice";
 
 const Publish = () => {
   const [tags, setTags] = useState([]);
+  const dispatch = useDispatch();
+
   const addToTag = (e) => {
     const {value } = e.target;
     const sanitizedValue = value.toLowerCase().trim();
     if (e.key === 'Enter') {
       if (sanitizedValue && !tags.includes(sanitizedValue) && tags.length < 5) {
         setTags((prev) => [...prev, sanitizedValue]);
+        dispatch(updateFeedTags(tags));
         e.target.value = '';
       }
     }
@@ -18,15 +23,17 @@ const Publish = () => {
     const {value } = e.target;
 
     if (e.key === 'Backspace' && !value) {
-      // const item = tags[-1];
       const newTags = tags.slice();
       newTags.pop();
       setTags(newTags);
+      dispatch(updateFeedTags(tags));
+
     }
   }
 
   const deleteTag = (index) => {
     setTags((prev) => prev.filter((tag, idx) => idx !== index));
+    dispatch(updateFeedTags(tags));
   }
 
   return (
