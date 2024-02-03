@@ -12,6 +12,7 @@ import { Toaster } from 'react-hot-toast'
 import FeedsLayout from './features/feeds/components/FeedsLayout'
 import Editor from './features/editor/routes/Editor'
 import EditorLayout from './features/editor/components/EditorLayout'
+import Feed from './features/feeds/routes/Feed'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -30,6 +31,7 @@ const App = () => {
           <Route index element={<Feeds />} />
           <Route path='followingFeeds' element={<FollowingFeeds />} />
         </Route>
+        <Route path='feed/:id' element={<Feed />} />
         <Route path='settings' element={<Settings />} />
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />

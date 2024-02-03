@@ -3,8 +3,7 @@ import FeedsCard from "./FeedsCard"
 
 const FeedsList = () => {
   const { feeds, isGettingFeeds, error } = useGetFeeds();
-  console.log(feeds);
-
+  
   if (isGettingFeeds) {
     return <p>Loading...</p>
   }
