@@ -1,6 +1,10 @@
+import FeedDetail from "../components/FeedDetail"
+
 const Feed = () => {
   return (
-    <div>Feed</div>
+    <div className="w-[90%] sm:w-[55%] mx-auto">
+      <FeedDetail />
+    </div>
   )
 }
 
