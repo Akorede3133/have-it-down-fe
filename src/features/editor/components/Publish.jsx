@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { HiOutlineXMark } from "react-icons/hi2";
 import { useDispatch } from "react-redux";
-import { updateFeedTags } from "../../../redux/EditorSlice";
+import { hidePublish, updateFeedTags } from "../../../redux/EditorSlice";
 
 const Publish = () => {
   const [tags, setTags] = useState([]);
@@ -37,10 +37,10 @@ const Publish = () => {
   }
 
   return (
-    <div className="absolute left-0 top-0 bg-white w-full py-4">
-      <div className="flex justify-end w-[60%] mx-auto cursor-pointer sm:w-[70%]">
+    <div className="absolute z-10 left-0 top-0 bg-white w-full py-4 transition-all">
+      <button className="flex justify-end w-[60%] mx-auto cursor-pointer sm:w-[70%]" onClick={() => dispatch(hidePublish())}>
        <HiOutlineXMark className="text-2xl text-gray-400" />
-      </div>
+      </button>
       <div className="w-[70%] sm:w-[70%] sm:mt-20 mx-auto flex flex-col sm:grid grid-cols-2 gap-20 justify-between">
         <section className="space-y-2">
           <h3 className="text-xl font-semibold capitalize">story preview</h3>

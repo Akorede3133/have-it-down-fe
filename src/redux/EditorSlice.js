@@ -18,7 +18,8 @@ const DEFAULT_INITIAL_DATA = () => {
 const initialState = {
   title: '',
   data: DEFAULT_INITIAL_DATA(),
-  tags: []
+  tags: [],
+  publish: false
 }
 const EditorSlice = createSlice({
   name: 'editor',
@@ -29,9 +30,15 @@ const EditorSlice = createSlice({
     },
     updateFeedTags: (state, { payload }) => {
       state.tags = payload;
+    },
+    showPublish: (state) => {
+      state.publish = true;
+    },
+    hidePublish: (state) => {
+      state.publish = false;
     }
   }
 })
 
-export const { setData, updateFeedTags } = EditorSlice.actions;
+export const { setData, updateFeedTags, showPublish, hidePublish } = EditorSlice.actions;
 export default EditorSlice.reducer;
