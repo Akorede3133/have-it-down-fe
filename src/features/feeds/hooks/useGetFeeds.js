@@ -3,7 +3,7 @@ import getFeeds from "../api/getFeeds"
 
 const useGetFeeds = () => {
   const { data: feeds, isPending: isGettingFeeds, error } = useQuery({
-    queryFn: () => getFeeds,
+    queryFn: ( )=> getFeeds(),
     queryKey: ['feeds']
   })
 
