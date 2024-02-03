@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { tools } from "../utils/tools";
 import EditorJS from "@editorjs/editorjs";
@@ -7,7 +7,7 @@ import { setData, updateTitle } from "../../../redux/EditorSlice";
 const EDITOR_HOLDER_ID = 'editorjs';
 
 const EditorForm = () => {
-  const [title, setTitle] = useState('');
+  const { title } = useSelector((state) => state.editor);
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.editor);
   const ref = useRef();
@@ -32,12 +32,11 @@ const EditorForm = () => {
         ref.current = null;
       }
     };
-  }, [data, dispatch]);
+  }, []);
   const handleTextArea = (e) => {
     const target = e.target;
     const { value } = target;
-    setTitle(value);
-    dispatch(updateTitle(title));
+    dispatch(updateTitle(value));
     const scrollHeight = target.scrollHeight;
     target.style.height = `${scrollHeight}px`;
   }
@@ -48,10 +47,10 @@ const EditorForm = () => {
     }
   }
   return (
-    <>
+    <div>
       <textarea name="title" placeholder="Title" className=" w-full outline-none placeholder:text-2xl tracking-widest h-[30px] resize-none overflow-hidden" value={title} onChange={handleTextArea} onKeyDown={handleKeyDown}  />
       <div id={EDITOR_HOLDER_ID} className="" />
-    </>
+    </div>
   );
 };
 

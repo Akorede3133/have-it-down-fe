@@ -9,8 +9,21 @@ const DEFAULT_INITIAL_DATA = () => {
         "data": {
           "text": "This is my awesome editor!",
           "level": 1
-        }
+        },
+        
       },
+      {
+        "type" : "image",
+        "data" : {
+            "file": {
+                "url" : "https://www.tesla.com/tesla_theme/assets/img/_vehicle_redesign/roadster_and_semi/roadster/hero.jpg"
+            },
+            "caption" : "Roadster // tesla.com",
+            "withBorder" : false,
+            "withBackground" : false,
+            "stretched" : true
+        }
+    }
     ]
   }
 }

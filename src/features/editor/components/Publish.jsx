@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { HiOutlineXMark } from "react-icons/hi2";
-import { useDispatch } from "react-redux";
-import { hidePublish, updateFeedTags } from "../../../redux/EditorSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { hidePublish, updateFeedTags, updateTitle } from "../../../redux/EditorSlice";
 
 const Publish = () => {
   const [tags, setTags] = useState([]);
   const dispatch = useDispatch();
+  const { title, data } = useSelector((state) => state.editor);
 
   const addToTag = (e) => {
     const {value } = e.target;
@@ -35,19 +36,30 @@ const Publish = () => {
     setTags((prev) => prev.filter((tag, idx) => idx !== index));
     dispatch(updateFeedTags(tags));
   }
+  const getImageFromFeed = () => {
+    const { blocks } = data;
+    const block = blocks.find((block) => block.type === 'image');
+    return block?.data?.file?.url;
 
+  }
   return (
-    <div className="absolute z-10 left-0 top-0 bg-white w-full py-4 transition-all">
+    <div className="absolute z-10 left-0 top-0 bg-white w-full h-full  py-4">
       <button className="flex justify-end w-[60%] mx-auto cursor-pointer sm:w-[70%]" onClick={() => dispatch(hidePublish())}>
        <HiOutlineXMark className="text-2xl text-gray-400" />
       </button>
       <div className="w-[70%] sm:w-[70%] sm:mt-20 mx-auto flex flex-col sm:grid grid-cols-2 gap-20 justify-between">
         <section className="space-y-2">
           <h3 className="text-xl font-semibold capitalize">story preview</h3>
-          <div className="w-full h-[200px] aspect-video bg-[#FAFAFA]"></div>
+          <div className="w-full flex justify-center items-center h-[200px] aspect-video bg-[#FAFAFA] overflow-hidden">
+            {
+              getImageFromFeed() ?
+               <img src={getImageFromFeed()} alt="" className=" object-cover" />
+               : <p className="text-sm text-slate-400 text-center w-[50%]">Include a high-quality image in your story to make it more inviting to readers.</p>
+            }
+          </div>
           <div className="flex flex-col gap-4">
-            <input type="text" name="" id="" placeholder="Write a preview title" className="border-b pb-1 py-4" />
-            <input type="text" name="" id="" placeholder="Write a preview subtitle" className="border-b pb-1 py-4" />
+            <input type="text" name="" id="" placeholder="Write a preview title" className="border-b pb-1 py-4" value={title} onChange={(e) => dispatch(updateTitle(e.target.value))} />
+            <input type="text" name="" id="" placeholder="Write a preview subtitle" className="border-b pb-1 py-4" defaultValue={data.blocks[0].data.text} />
           </div>
         </section>
         <section className="">
