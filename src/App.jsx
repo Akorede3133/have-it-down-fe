@@ -12,7 +12,6 @@ import { Toaster } from 'react-hot-toast'
 import FeedsLayout from './features/feeds/components/FeedsLayout'
 import Editor from './features/editor/routes/Editor'
 import EditorLayout from './features/editor/components/EditorLayout'
-import DraftLayout from './features/editor/components/DraftLayout'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -37,9 +36,6 @@ const App = () => {
       </Route>
       <Route element={<EditorLayout />}>
         <Route path='editor' element={<Editor />} />
-      </Route>
-      <Route element={<DraftLayout />}>
-        <Route path='p/:id/edit' element={<Editor />} />
       </Route>
     </Route>
   ))

@@ -2,11 +2,19 @@ import { useState } from "react";
 import { HiOutlineXMark } from "react-icons/hi2";
 import { useDispatch, useSelector } from "react-redux";
 import { hidePublish, updateFeedTags, updateTitle } from "../../../redux/EditorSlice";
+import useCreateFeed from "../../feeds/hooks/useCreateFeed";
 
 const Publish = () => {
   const [tags, setTags] = useState([]);
   const dispatch = useDispatch();
   const { title, data } = useSelector((state) => state.editor);
+  const { createNewFeed, isPending } = useCreateFeed();
+
+  const formData = {
+    title,
+    content: data.blocks,
+    draft: false
+  };
 
   const addToTag = (e) => {
     const {value } = e.target;
@@ -80,7 +88,7 @@ const Publish = () => {
                { tags.length < 5 && <input type="text" name="tags" placeholder="Add a topic..." className="bg-inherit outline-none text-sm py-1" onKeyDown={addToTag} />
                }
             </div>
-          <button className="bg-[#11780E] my-10 py-[7px] px-4 rounded-full text-white text-sm">Publish now</button>
+          <button className="bg-[#11780E] my-10 py-[7px] px-4 rounded-full text-white text-sm" onClick={() => createNewFeed(formData)}>Publish now</button>
         </section>
       </div>
     </div>

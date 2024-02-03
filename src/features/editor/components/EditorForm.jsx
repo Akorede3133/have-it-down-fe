@@ -20,6 +20,7 @@ const EditorForm = () => {
         placeholder: 'Let`s write an awesome story...',
         onChange: async (api, event) => {
           const newData = await api.saver.save();
+          console.log("New Data:", newData); 
           dispatch(setData(newData))
         },
       });
@@ -48,7 +49,7 @@ const EditorForm = () => {
   }
   return (
     <div>
-      <textarea name="title" placeholder="Title" className=" w-full outline-none placeholder:text-2xl tracking-widest h-[30px] resize-none overflow-hidden" value={title} onChange={handleTextArea} onKeyDown={handleKeyDown}  />
+      <textarea name="title" placeholder="Title" className=" w-full outline-none text-4xl placeholder:text-2xl tracking-widest h-[40px] resize-none overflow-hidden" value={title} onChange={handleTextArea} onKeyDown={handleKeyDown}  />
       <div id={EDITOR_HOLDER_ID} className="" />
     </div>
   );
