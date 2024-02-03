@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { tools } from "../utils/tools";
 import EditorJS from "@editorjs/editorjs";
-import { setData } from "../../../redux/EditorSlice";
+import { setData, updateTitle } from "../../../redux/EditorSlice";
 
 const EDITOR_HOLDER_ID = 'editorjs';
 
@@ -37,6 +37,7 @@ const EditorForm = () => {
     const target = e.target;
     const { value } = target;
     setTitle(value);
+    dispatch(updateTitle(title));
     const scrollHeight = target.scrollHeight;
     target.style.height = `${scrollHeight}px`;
   }

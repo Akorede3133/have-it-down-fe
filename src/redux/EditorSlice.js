@@ -36,9 +36,12 @@ const EditorSlice = createSlice({
     },
     hidePublish: (state) => {
       state.publish = false;
+    },
+    updateTitle: (state, { payload }) => {
+      state.title = payload;
     }
   }
 })
 
-export const { setData, updateFeedTags, showPublish, hidePublish } = EditorSlice.actions;
+export const { setData, updateFeedTags, showPublish, hidePublish, updateTitle } = EditorSlice.actions;
 export default EditorSlice.reducer;
