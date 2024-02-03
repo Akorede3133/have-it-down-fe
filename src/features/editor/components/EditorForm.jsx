@@ -40,9 +40,15 @@ const EditorForm = () => {
     const scrollHeight = target.scrollHeight;
     target.style.height = `${scrollHeight}px`;
   }
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      return ref.current.focus()
+    }
+  }
   return (
     <>
-      <textarea name="title" placeholder="Title" className=" w-full outline-none placeholder:text-2xl tracking-widest h-[30px] resize-none overflow-hidden" value={title} onChange={handleTextArea}  />
+      <textarea name="title" placeholder="Title" className=" w-full outline-none placeholder:text-2xl tracking-widest h-[30px] resize-none overflow-hidden" value={title} onChange={handleTextArea} onKeyDown={handleKeyDown}  />
       <div id={EDITOR_HOLDER_ID} className="" />
     </>
   );
