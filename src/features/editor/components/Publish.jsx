@@ -7,12 +7,27 @@ const Publish = () => {
     const {value } = e.target;
     const sanitizedValue = value.toLowerCase().trim();
     if (e.key === 'Enter') {
-      if (!tags.includes(sanitizedValue)) {
+      if (sanitizedValue && !tags.includes(sanitizedValue)) {
         setTags((prev) => [...prev, sanitizedValue]);
         e.target.value = '';
       }
     }
   }
+
+  const deleteFromTags = (e) => {
+    const {value } = e.target;
+
+    if (e.key === 'Backspace' && !value) {
+      // const item = tags[-1];
+      const newTags = tags.slice();
+      newTags.pop();
+      setTags(newTags);
+    }
+  }
+
+  // const deleteTag = () => {
+
+  // }
 
   console.log(tags);
   
@@ -33,7 +48,7 @@ const Publish = () => {
         <section className="">
           <h3>Publishing to: <span className="font-bold">Emiolasaheed</span></h3>
           <p className="text-sm py-3">Add or change topics (up to 5) so readers know what your story is about</p>
-          <div className="flex flex-wrap items-start  bg-[#FAFAFA] sm:w-full gap-2 py-2 px-3 border">
+          <div className="flex flex-wrap items-start  bg-[#FAFAFA] sm:w-full gap-2 py-2 px-3 border" onKeyDown={deleteFromTags}>
               {
                 tags.map((tag, index) => (
                   <p key={index} className="flex items-center gap-2 bg-white rounded-sm border py-1 shadow-sm px-3">
