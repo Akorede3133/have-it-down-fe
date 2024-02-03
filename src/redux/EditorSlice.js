@@ -23,7 +23,8 @@ const DEFAULT_INITIAL_DATA = () => {
             "withBackground" : false,
             "stretched" : true
         }
-    }
+      },
+     
     ]
   }
 }
