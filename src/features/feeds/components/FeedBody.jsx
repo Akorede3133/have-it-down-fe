@@ -1,5 +1,4 @@
 const FeedBody = ({ blocks }) => {
-  console.log(blocks);
   return (
     <div className="my-10">
       {
