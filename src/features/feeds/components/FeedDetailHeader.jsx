@@ -31,4 +31,4 @@ const FeedDetailHeader = () => {
   )
 }
 
-export default FeedDetailHeader
+export default FeedDetailHeader;
