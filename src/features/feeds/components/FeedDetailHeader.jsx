@@ -1,6 +1,6 @@
 import ProfileAvatar from "../../../components/ProfileAvatar"
 
-const FeedDetailHeader = ({ title }) => {
+const FeedDetailHeader = ({ title, userName }) => {
   return (
     <div>
       <h1 className=" text-3xl sm:leading-[52px] sm:text-[2.63rem] font-bold">{title}</h1>
@@ -9,7 +9,7 @@ const FeedDetailHeader = ({ title }) => {
         <ProfileAvatar />
         <div>
           <div className="flex items-center gap-2">
-            <p className=" font-medium">Mayank Choubey</p>
+            <p className=" font-medium">{userName}</p>
             <span className="w-[3px] h-[3px] rounded-full sm:inline-block bg-gray-500"></span>
 
           <button className="text-green-500">Follow</button>

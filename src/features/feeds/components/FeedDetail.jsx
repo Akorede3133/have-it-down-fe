@@ -17,7 +17,7 @@ const FeedDetail = () => {
   }
   return (
     <div>
-      <FeedDetailHeader title={feed.title} />
+      <FeedDetailHeader title={feed.title} userName={feed.User.name} />
       <FeedInteraction />
       <FeedBody blocks={feed.content}  />
       <FeedInteraction />   
