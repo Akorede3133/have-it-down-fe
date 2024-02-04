@@ -1,16 +1,12 @@
-const renderContent = (blocks) => {
-  const doc = blocks.map(( block) => {
-    const value = block.data.text;
-    switch (block.type) {
-      case "header":
-        return `<h1>${block.data.text}</h1>`;
-      case 'paragraph':
-        return `<p>${value}</p>`;
-      default:
-        return null;
-    }
-  })
-  return doc;
+const renderContent = (block) => {
+  switch (block.type) {
+    case "header":
+      return <h{block.data.level}>${block.data.text}</h>;
+    case 'paragraph':
+      return <p>${block.data.text}</p>;
+    default:
+      return null;
+  }
 }
 
 export default renderContent;
