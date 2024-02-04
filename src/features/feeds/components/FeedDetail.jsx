@@ -8,6 +8,7 @@ const FeedDetail = () => {
   const { id } = useParams();
 
   const { feed, isGettingFeed, error } = useGetFeed(id);
+  console.log(feed);
 
   if (isGettingFeed) {
     return <p>loading...</p>
@@ -18,7 +19,7 @@ const FeedDetail = () => {
   return (
     <div>
       <FeedDetailHeader title={feed.title} userName={feed.User.name} />
-      <FeedInteraction feedId={feed.id} claps={feed.Claps} />
+      <FeedInteraction feedId={feed.id} clapsCount={feed.claps} claps={feed.Claps} />
       <FeedBody blocks={feed.content}  />
       <FeedInteraction />   
     </div>

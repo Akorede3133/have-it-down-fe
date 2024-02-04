@@ -4,7 +4,7 @@ import useCreateClap from "../hooks/useCreateClap"
 import useGetCurrentUser from "../../auth/hooks/useGetCurrentUser"
 import useDestroyClap from "../hooks/useDestroyClap"
 
-const FeedInteraction = ({ feedId, claps }) => {
+const FeedInteraction = ({ feedId, claps, clapsCount }) => {
   const { clap, isClapping } = useCreateClap();
   const { unClap, isUnclapping } = useDestroyClap();
   const { user } = useGetCurrentUser();
@@ -15,11 +15,11 @@ const FeedInteraction = ({ feedId, claps }) => {
         { isLikedByUser ? 
           <button onClick={() => unClap({ feedId, userId })} className="flex items-center gap-2" disabled={isClapping}>
           <PiHandsClappingThin className="text-blue-800 text-xl" />
-          <span className="text-sm">643</span>
+          <span className="text-sm">{clapsCount}</span>
         </button>
         :   <button onClick={() => clap(feedId)} className="flex items-center gap-2" disabled={isClapping}>
         <PiHandsClappingThin className="text-gray-400 text-xl" />
-        <span className="text-sm">643</span>
+        <span className="text-sm">{clapsCount}</span>
         </button>
       }
         <button className="flex items-center gap-2">
