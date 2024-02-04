@@ -2,32 +2,24 @@ import FeedDetailHeader from "./FeedDetailHeader"
 import FeedInteraction from "./FeedInteraction";
 import FeedBody from "./FeedBody";
 import { useParams } from "react-router-dom";
+import useGetFeed from "../hooks/useGetFeed";
 
 const FeedDetail = () => {
-  const DEFAULT_INITIAL_DATA = () => {
-    return {
-      "time": new Date().getTime(),
-      "blocks": [
-        {
-          "type": "header",
-          "data": {
-            "text": "This is my awesome editor!",
-            "level": 4
-          },
-          
-        },
-      ]
-    }
-  }
-  const blocks = DEFAULT_INITIAL_DATA().blocks;
-
   const { id } = useParams();
-  
 
+  const { feed, isGettingFeed, error } = useGetFeed(id);
+
+  if (isGettingFeed) {
+    return <p>loading...</p>
+  }
+  if (error) {
+    return <p>{error.message}</p>
+  }
   return (
     <div>
-      <FeedDetailHeader />
-      <FeedBody blocks={blocks}  />
+      <FeedDetailHeader title={feed.title} />
+      <FeedInteraction />
+      <FeedBody blocks={feed.content}  />
       <FeedInteraction />   
     </div>
   )

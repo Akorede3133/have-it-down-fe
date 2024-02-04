@@ -10,4 +10,4 @@ const useGetFeed = (id) => {
   return { feed, isGettingFeed, error };
 }
 
-export default useGetFeed;
+export default useGetFeed

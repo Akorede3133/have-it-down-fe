@@ -1,9 +1,9 @@
 import ProfileAvatar from "../../../components/ProfileAvatar"
 
-const FeedDetailHeader = () => {
+const FeedDetailHeader = ({ title }) => {
   return (
     <div>
-      <h1 className=" text-3xl sm:leading-[52px] sm:text-[2.63rem] font-bold">Node.js: The fastest web framework in 2024</h1>
+      <h1 className=" text-3xl sm:leading-[52px] sm:text-[2.63rem] font-bold">{title}</h1>
       
       <section className="flex items-start gap-2 my-4">
         <ProfileAvatar />

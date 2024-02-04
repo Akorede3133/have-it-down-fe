@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { tools } from "../utils/tools";
 import EditorJS from "@editorjs/editorjs";
 import { setData, updateTitle } from "../../../redux/EditorSlice";
-
 const EDITOR_HOLDER_ID = 'editorjs';
 
 const EditorForm = () => {

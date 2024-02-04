@@ -1,7 +1,7 @@
 const FeedBody = ({ blocks }) => {
   console.log(blocks);
   return (
-    <div>
+    <div className="my-10">
       {
         blocks.map((block) => {
           switch (block.type) {
@@ -27,10 +27,10 @@ const FeedBody = ({ blocks }) => {
               return <p key={block.id}>{block.data.text}</p>
             case 'list':
               return (
-                <ul>
+                <ul className=" px-10">
                   {
-                    blocks.data.items.map((item, index) => (
-                      <li key={index}>{item}</li>
+                    block.data.items.map((item, index) => (
+                      <li className=" list-disc py-2 " key={index}>{item}</li>
                     ))
                   }
                 </ul>
