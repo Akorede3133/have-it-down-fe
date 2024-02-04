@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/blog-logo.jfif';
 import { HiOutlineBookmark, HiOutlineEllipsisHorizontal, HiOutlineMinusCircle } from "react-icons/hi2";
-const FeedsCard = ({ title }) => {
+const FeedsCard = ({ title, id }) => {
   return (
     <li className='border-b py-4 flex flex-col justify-between gap-10'>
       <section className=''>
@@ -16,7 +16,7 @@ const FeedsCard = ({ title }) => {
         </Link>
        </section>
         <section>
-          <h3 className=' font-bold text-[1.1rem] text-[#242424]'>{title}</h3>
+          <Link to={`feeds/${id}`} className=' font-bold text-[1.1rem] text-[#242424]'>{title}</Link>
         </section>
       </section>
      

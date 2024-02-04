@@ -31,7 +31,7 @@ const App = () => {
           <Route index element={<Feeds />} />
           <Route path='followingFeeds' element={<FollowingFeeds />} />
         </Route>
-        <Route path='feed/:id' element={<Feed />} />
+        <Route path='feeds/:id' element={<Feed />} />
         <Route path='settings' element={<Settings />} />
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />

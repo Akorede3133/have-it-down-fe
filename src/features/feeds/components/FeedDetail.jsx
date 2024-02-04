@@ -1,8 +1,7 @@
 import FeedDetailHeader from "./FeedDetailHeader"
-import { PiHandsClappingThin } from "react-icons/pi";
-import { HiOutlineChatBubbleOvalLeft, HiOutlineBookmark } from "react-icons/hi2";
 import FeedInteraction from "./FeedInteraction";
 import FeedBody from "./FeedBody";
+import { useParams } from "react-router-dom";
 
 const FeedDetail = () => {
   const DEFAULT_INITIAL_DATA = () => {
@@ -21,6 +20,9 @@ const FeedDetail = () => {
     }
   }
   const blocks = DEFAULT_INITIAL_DATA().blocks;
+
+  const { id } = useParams();
+  
 
   return (
     <div>
