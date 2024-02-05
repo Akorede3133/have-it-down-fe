@@ -1,6 +1,7 @@
 import { createPortal } from "react-dom"
 import { HiOutlineXMark } from "react-icons/hi2"
 import CommentForm from "./CommentForm"
+import CommentsList from "./CommentsList"
 
 const Comments = () => {
   return (
@@ -12,6 +13,7 @@ const Comments = () => {
           <HiOutlineXMark className="text-2xl text-slate-500" />
         </section>
         <CommentForm />
+        <CommentsList />
         </div>
       </div>, document.body
     )
