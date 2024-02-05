@@ -2,9 +2,10 @@ import CommentCard from "./CommentCard"
 
 const CommentsList = () => {
   return (
-    <div>
+    <ul className=" divide-y-[1px] divide-slate-300">
       <CommentCard />
-    </div>
+      <CommentCard />
+    </ul>
   )
 }
 
