@@ -4,7 +4,6 @@ import FeedBody from "./FeedBody";
 import { useParams } from "react-router-dom";
 import useGetFeed from "../hooks/useGetFeed";
 import Comments from "./Comments";
-import { createPortal } from "react-dom";
 
 const FeedDetail = () => {
   const { id } = useParams();
