@@ -4,7 +4,7 @@ import useCreateClap from "../hooks/useCreateClap"
 import useGetCurrentUser from "../../auth/hooks/useGetCurrentUser"
 import useDestroyClap from "../hooks/useDestroyClap"
 
-const FeedInteraction = ({ feedId, claps, clapsCount }) => {
+const FeedInteraction = ({ feedId, claps, clapsCount, displayComments }) => {
   const { clap, isClapping } = useCreateClap();
   const { unClap, isUnclapping } = useDestroyClap();
   const { user } = useGetCurrentUser();
@@ -22,7 +22,7 @@ const FeedInteraction = ({ feedId, claps, clapsCount }) => {
         <span className="text-sm">{clapsCount}</span>
         </button>
       }
-        <button className="flex items-center gap-2">
+        <button className="flex items-center gap-2" onClick={displayComments}>
           <HiOutlineChatBubbleOvalLeft className="text-gray-400 text-xl" />
           <span>19</span>
         </button>
