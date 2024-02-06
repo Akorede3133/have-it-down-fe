@@ -3,8 +3,7 @@ import FeedInteraction from "./FeedInteraction";
 import FeedBody from "./FeedBody";
 import { useParams } from "react-router-dom";
 import useGetFeed from "../hooks/useGetFeed";
-import Comments from "./Comments";
-
+import Comments from "../../comment/components/Comments";
 const FeedDetail = () => {
   const { id } = useParams();
 
@@ -23,7 +22,7 @@ const FeedDetail = () => {
         <FeedInteraction feedId={feed.id} clapsCount={feed.claps} claps={feed.Claps} />
         <FeedBody blocks={feed.content}  />
         <FeedInteraction />
-        <Comments />
+        <Comments feedId={id} />
       </div>
   )
    
