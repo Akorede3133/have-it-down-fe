@@ -2,7 +2,7 @@ import { PiHandsClappingThin } from "react-icons/pi"
 import { HiOutlineChatBubbleOvalLeft } from "react-icons/hi2";
 import CommentTextArea from "./CommentTextArea";
 import { useState } from "react";
-const CommentCardFooter = () => {
+const CommentCardFooter = ({ parentId }) => {
   const [showReply, setShowReply] = useState(false);
   return (
     <section>
@@ -19,7 +19,7 @@ const CommentCardFooter = () => {
         <button className="text-sm" onClick={() => setShowReply((prev) => !prev)}>Reply</button>
       </div>
 
-     {showReply && <CommentTextArea reply /> }
+     {showReply && <CommentTextArea parentId={parentId} /> }
     </section>
   )
 }
