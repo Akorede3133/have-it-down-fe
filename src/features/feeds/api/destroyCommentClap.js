@@ -1,6 +1,6 @@
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-const destroyClap = async (commentId, userId ) => {
+const destroyCommentClap = async (commentId, userId ) => {
   console.log(commentId, userId);
   try {
     const response = await fetch(`${BASE_URL}/commentClaps/${commentId}/${userId}`, {
@@ -18,4 +18,4 @@ const destroyClap = async (commentId, userId ) => {
   }
 }
 
-export default destroyClap;
+export default destroyCommentClap;
