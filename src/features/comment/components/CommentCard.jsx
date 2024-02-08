@@ -3,12 +3,12 @@ import CommentCardFooter from "./CommentCardFooter"
 import CommentCardHeader from "./CommentCardHeader"
 
 const CommentCard = ({ comment }) => {
-  const { content, id, replies, User: { name } } = comment;
+  const { content, id, replies, User: { name }, createdAt } = comment;
   const [showReplies, setShowReplies] = useState(false);
   // console.log(replies);
   return (
     <li className="py-3">
-      <CommentCardHeader name={name} />
+      <CommentCardHeader name={name} createdAt={createdAt} />
       <p className="text-sm">{content}</p>
       <CommentCardFooter parentId={id} repliesCount={replies?.length} showReplies={showReplies} setShowReplies={setShowReplies} user={name} />
       {showReplies && replies?.length > 0 && (
