@@ -10,7 +10,7 @@ const CommentCard = ({ comment }) => {
     <li className="py-3">
       <CommentCardHeader name={name} />
       <p className="text-sm">{content}</p>
-      <CommentCardFooter parentId={id} repliesCount={replies?.length} showReplies={showReplies} setShowReplies={setShowReplies} />
+      <CommentCardFooter parentId={id} repliesCount={replies?.length} showReplies={showReplies} setShowReplies={setShowReplies} user={name} />
       {showReplies && replies?.length > 0 && (
         <ul className="ml-3 border-l-2 pl-4">
           {replies.map((reply) => (
