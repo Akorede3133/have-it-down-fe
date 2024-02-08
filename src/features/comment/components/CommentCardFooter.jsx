@@ -4,24 +4,27 @@ import CommentTextArea from "./CommentTextArea";
 import { useState } from "react";
 import useCreateCommentClap from "../../feeds/hooks/useCreateCommentClap";
 import useGetCurrentUser from "../../auth/hooks/useGetCurrentUser";
+import useDestroyCommentClap from "../../feeds/hooks/useDestroyCommentClap";
 const CommentCardFooter = ({ parentId, repliesCount, setShowReplies, showReplies, user, id, claps, clapsDetails }) => {
   const [showReply, setShowReply] = useState(false);
   const { clap, isClapping } = useCreateCommentClap();
   const { user: currentUser } = useGetCurrentUser();
   const isLikedByUser = clapsDetails?.some((detail) => detail.UserId === currentUser?.userId)
-  console.log(currentUser, clapsDetails);
+  const { unClap, isUnclapping } = useDestroyCommentClap();
+  console.log(clapsDetails);
+  // console.log(currentUser, clapsDetails);
   return (
     <section>
       <div className="flex  justify-between items-center py-4">
         <div className="flex items-center gap-3">
           { isLikedByUser ? 
-            <button  className="flex items-center gap-2" disabled={isClapping}>
+            <button onClick={() => unClap({commentId: parentId, userId: currentUser?.userId})} className="flex items-center gap-2" disabled={isClapping}>
             <PiHandsClappingThin className="text-blue-800 text-xl" />
-            <span className="text-sm">{claps}</span>
+            <span className="text-sm">{ claps > 0 && claps}</span>
           </button>
           :   <button onClick={() => clap(parentId)} className="flex items-center gap-2" disabled={isClapping}>
           <PiHandsClappingThin className="text-gray-400 text-xl" />
-          <span className="text-sm">{claps}</span>
+          <span className="text-sm">{claps > 0 && claps}</span>
           </button>
         }
         { repliesCount === 0 || <button className="flex items-center gap-1" onClick={() => setShowReplies((prev) =>  !prev)}>
