@@ -23,8 +23,6 @@ const CommentTextArea = ({ parentId, feedId, user, setShowReplyBox }) => {
     setContent(target.value);
     const height = 40;
     const scrollHeight = target.scrollHeight;
-    console.log(height, scrollHeight);
-
     target.style.height = target.value  ? `${scrollHeight}px` : `${height}px`;
   }
   return (
