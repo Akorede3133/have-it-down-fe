@@ -19,7 +19,7 @@ const CommentCardFooter = ({ parentId, repliesCount, setShowReplies, showReplies
         <button className="text-sm" onClick={() => setShowReply((prev) => !prev)}>Reply</button>
       </div>
 
-     {showReply && <CommentTextArea parentId={parentId} user={user} setShowReply={setShowReply} /> }
+     {showReply && <CommentTextArea parentId={parentId} user={user} setShowReplyBox={setShowReply} /> }
     </section>
   )
 }
