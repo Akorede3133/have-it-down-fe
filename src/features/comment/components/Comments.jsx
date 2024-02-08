@@ -3,7 +3,7 @@ import { HiOutlineXMark } from "react-icons/hi2"
 import CommentForm from "./CommentForm"
 import CommentsList from "./CommentsList"
 
-const Comments = ({ feedId, hideComments }) => {
+const Comments = ({ feedId, hideComments, comments }) => {
   return (
       createPortal (
         <div className="fixed h-full w-full top-0 left-0 bg-[rgba(0,0,0,0.2)]">
@@ -15,7 +15,7 @@ const Comments = ({ feedId, hideComments }) => {
           </button>
         </section>
         <CommentForm feedId={feedId} />
-        <CommentsList />
+        <CommentsList comments={comments} />
         </div>
       </div>, document.body
     )

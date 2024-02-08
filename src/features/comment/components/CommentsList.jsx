@@ -1,10 +1,13 @@
 import CommentCard from "./CommentCard"
 
-const CommentsList = () => {
+const CommentsList = ({ comments }) => {
   return (
     <ul className=" divide-y-[1px] divide-slate-300">
-      <CommentCard />
-      <CommentCard />
+      {
+        comments.map((comment) => (
+          <CommentCard key={comment.id} comment={comment} />
+        ))
+      }
     </ul>
   )
 }

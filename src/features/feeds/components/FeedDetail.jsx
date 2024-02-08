@@ -25,7 +25,7 @@ const FeedDetail = () => {
         <FeedInteraction feedId={feed.id} clapsCount={feed.claps} claps={feed.Claps} />
         <FeedBody blocks={feed.content}  />
         <FeedInteraction displayComments={displayComments} />
-        {showComments && <Comments feedId={id} hideComments={hideComments} />}
+        {showComments && <Comments feedId={id} hideComments={hideComments} comments={feed.Comments} />}
       </div>
   )
    
