@@ -13,7 +13,8 @@ const Publish = () => {
   const formData = {
     title,
     content: data.blocks,
-    draft: false
+    draft: false,
+    tags,
   };
 
   const addToTag = (e) => {

@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/blog-logo.jfif';
 import { HiOutlineBookmark, HiOutlineEllipsisHorizontal, HiOutlineMinusCircle } from "react-icons/hi2";
-const FeedsCard = ({ title, id, User }) => {
+import { formatDateInDistance } from '../../../utils/date';
+import { format } from 'date-fns';
+const FeedsCard = ({ feed }) => {
+  const { title, User,  id, createdAt, tags} = feed;
   return (
     <li className='border-b py-4 flex flex-col justify-between gap-10'>
       <section className=''>
@@ -12,7 +15,7 @@ const FeedsCard = ({ title, id, User }) => {
         </Link>
         <span className='h-1 w-1 rounded-full bg-gray-400'></span>
          <Link to='' className='text-sm'>
-            <p>Aug 15, 2023</p>
+            <p>{format(new Date(createdAt), 'MMM dd, yyyy')}</p>
         </Link>
        </section>
         <section>
@@ -22,7 +25,7 @@ const FeedsCard = ({ title, id, User }) => {
      
       <section className=' flex justify-between items-center'>
         <div  className='flex gap-3 items-center'>
-          <p className='bg-[#F2F2F2] rounded-full py-1 px-3 text-sm'>Programming</p>
+        { tags && <p className='bg-[#F2F2F2] capitalize rounded-full py-1 px-3 text-sm'>{tags[0]}</p> }
           <p className='text-sm text-gray-500'>7 min read</p>
         </div>
         <div className='flex gap-2'>

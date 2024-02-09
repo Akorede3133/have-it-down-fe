@@ -14,7 +14,7 @@ const FeedsList = () => {
     <ul>
       {
         feeds.map((feed) => (
-          <FeedsCard key={feed.id} {...feed} />
+          <FeedsCard key={feed.id} feed={feed} />
         ))
       }
     </ul>

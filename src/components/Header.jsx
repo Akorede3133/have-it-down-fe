@@ -17,7 +17,7 @@ const Header = () => {
       <div>
         <ul className='flex items-center gap-8'>
           <li className='hidden md:block'>
-            <Link to='' className='flex items-center gap-1'>
+            <Link to='/editor' className='flex items-center gap-1'>
               <LuPenSquare className='text-[#9F9F9F] text-2xl' />
               <span className='capitalize font-'>write</span>
             </Link>
