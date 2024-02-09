@@ -22,9 +22,9 @@ const FeedDetail = () => {
   return (
         <div>
         <FeedDetailHeader title={feed.title} userName={feed.User.name} />
-        <FeedInteraction feedId={feed.id} clapsCount={feed.claps} claps={feed.Claps} />
+        <FeedInteraction displayComments={displayComments} feedId={feed.id} clapsCount={feed.claps} claps={feed.Claps} commentsCount={feed.Comments.length} />
         <FeedBody blocks={feed.content}  />
-        <FeedInteraction displayComments={displayComments} />
+        <FeedInteraction displayComments={displayComments} feedId={feed.id} clapsCount={feed.claps} claps={feed.Claps} commentsCount={feed.Comments.length} />
         {showComments && <Comments feedId={id} hideComments={hideComments} comments={feed.Comments} />}
       </div>
   )
